@@ -510,6 +510,7 @@
     <form id="quoteForm" action="https://formspree.io/f/mykajarg" method="POST">
       <input type="hidden" name="_subject" value="New Contractor GL/BOP Quote Request – Whitestone Insurance">
       <input type="hidden" name="_redirect" value="false">
+      <input type="hidden" name="_replyto" id="replyto-field" value="">
       <input type="hidden" id="lang-field" name="language" value="English">
 
       <!-- ── SECTION 1: BUSINESS INFO ── -->
@@ -1070,6 +1071,11 @@ function setPlaceholder(id, val) {
   const el = document.getElementById(id);
   if (el) el.placeholder = val;
 }
+
+// ── SYNC REPLY-TO ──
+document.getElementById('inp-email').addEventListener('input', function() {
+  document.getElementById('replyto-field').value = this.value;
+});
 
 // ── FORM SUBMIT ──
 document.getElementById('quoteForm').addEventListener('submit', async function(e) {
